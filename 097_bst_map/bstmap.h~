@@ -1,0 +1,45 @@
+#include <stdexcept>
+
+#include "map.h"
+
+template<typename K, typename V>
+class BstMap : public Map<K, V> {
+  class Node {
+   public:
+    K key;
+    V val;
+    Node * left;
+    Node * right;
+    Node() : key(0), val(0), left(NULL), right(NULL){};
+    Node(const K & k, const V & v) : key(k), val(v), left(NULL), right(NULL){};
+  };
+
+ private:
+  Node * root;
+  BstMap() : root(NULL){};
+  Node * addHelper(Node * cur, const K & key, const V & value) {
+    if (cur == NULL) {
+      Node * ans = new Node(key, value);
+      return ans;
+    }
+
+    else {
+      if (cur->key == key) {
+        cur->key = key;
+        cur->val = value;
+      }
+      else if (cur->key > key) {
+        cur->left = addHelper(cur->left, key, value);
+      }
+      else {
+        cur->right = addHelper(cur->right, key, value);
+      }
+    }
+    return cur;
+  }
+
+ public:
+  virtual void add(const K & key, const V & value) { root = addHelper(root, key, value); }
+  virtual const V & lookup(const K & key) const throw(std::invalid_argument) { root }
+  virtual void remove(const K & key) {}
+};

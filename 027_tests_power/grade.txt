@@ -1,0 +1,96 @@
+Grading at 09/12/2019:21:28:40.106079
+For commit ID ad8b4dc98c5200b1816fbe17c5af7499a33990f9
+Grading at Thu Sep 12 17:28:39 EDT 2019
+**Testing broken implementation 10 **
+-------------------------------------
+
+1 ?= 1
+6 ?= 36
+failed
+
+**Testing broken implementation 11 **
+-------------------------------------
+
+1 ?= 1
+36 ?= 36
+1 ?= 1
+7 ?= 2147483647
+failed
+
+**Testing broken implementation 1 **
+-------------------------------------
+
+1 ?= 1
+1 ?= 36
+failed
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+0 ?= 1
+failed
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+1 ?= 1
+36 ?= 36
+0 ?= 1
+failed
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+1 ?= 1
+36 ?= 36
+1 ?= 1
+65535 ?= 2147483647
+failed
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+1 ?= 1
+30 ?= 36
+failed
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+1 ?= 1
+4 ?= 36
+failed
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+1 ?= 1
+9 ?= 36
+failed
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+1 ?= 1
+12 ?= 36
+failed
+
+**Testing broken implementation 9 **
+-------------------------------------
+
+1 ?= 1
+0 ?= 36
+failed
+
+**Testing correct implementation **
+-------------------------------------
+
+1 ?= 1
+36 ?= 36
+1 ?= 1
+2147483647 ?= 2147483647
+
+All tests were ok.
+
+
+Overall Grade: PASSED

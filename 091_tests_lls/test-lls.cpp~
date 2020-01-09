@@ -1,0 +1,18 @@
+#include "il.h"
+
+void test(int array[], size_t n, size_t ans) {
+  size_t ret;
+
+  ret = maxSeq(array, n);
+  printf("expect %zu, got %zu\n", ans, ret);
+  if (ret != ans) {
+    printf("found a bug !!\narray = ");
+    printarray(array, n);
+    printf(", n = %zu\n", n);
+    exit(EXIT_FAILURE);
+  }
+}
+
+int main() {
+  new testList();
+}

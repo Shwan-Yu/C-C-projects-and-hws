@@ -1,0 +1,100 @@
+#include "election.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//include any other headers you need here...
+
+state_t parseLine(const char * line) {
+  //STEP 1: write me
+  state_t state;
+  // array for the name
+  char name[MAX_STATE_NAME_LENGTH] = {};
+  // array for the population, should not be more than 15 chars long.
+  char pop[15];
+  // array for the votes, should not be more than 5 chars long.
+  char votes[5];
+  size_t i = 0;
+  //find the first column
+  while (line[i] != ':') {
+    //printf("%zd\n", i);
+    if (i >= MAX_STATE_NAME_LENGTH) {
+      //too many characters
+      fprintf(stderr, "Too many characters for the name\n");
+      exit(EXIT_FAILURE);
+    }
+    name[i] = line[i];
+    i++;
+    // if not find :, format incorrect
+    if (i > strlen(line)) {
+      fprintf(stderr, "Incorrect format for the input - not finding the first column\n");
+      exit(EXIT_FAILURE);
+    }
+  }
+  //add string ending
+  name[i] = '\0';
+  // move pass the first column
+  i++;
+  //find the second column
+  size_t ind_pop = 0;
+  while (line[i] != ':') {
+    //printf("%zd\n", i);
+    if (ind_pop >= 14) {
+      //too many characters
+      fprintf(stderr, "Too many characters for populations\n");
+      exit(EXIT_FAILURE);
+    }
+    pop[ind_pop] = line[i];
+    i++;
+    ind_pop++;
+    // if not find :, format incorrect
+    if (i > strlen(line)) {
+      fprintf(stderr, "Incorrect format for the input - not finding the second column\n");
+      exit(EXIT_FAILURE);
+    }
+  }
+  // add string ending
+  pop[ind_pop] = '\0';
+  // move pass the second column
+  i++;
+  size_t ind_vote = 0;
+  while (line[i] != '\0') {
+    // printf("%zd, line[i] = %c\n", i, line[i]);
+    if (ind_vote >= 5) {
+      //too many characters
+      fprintf(stderr, "Too many characters for votes\n");
+      exit(EXIT_FAILURE);
+    }
+    votes[ind_vote] = line[i];
+    i++;
+    ind_vote++;
+    // if not find :, format incorrect
+    if (i > strlen(line)) {
+      fprintf(stderr,
+              "Incorrect format for the input - not finding the ending for the string\n");
+      exit(EXIT_FAILURE);
+    }
+  }
+  votes[ind_vote] = '\0';
+  //update state variable
+  strncpy(state.name, name, MAX_STATE_NAME_LENGTH);
+  state.population = atoi(pop);
+  state.electoralVotes = atoi(votes);
+  return state;
+}
+
+unsigned int countElectoralVotes(state_t * stateData,
+                                 uint64_t * voteCounts,
+                                 size_t nStates) {
+  //STEP 2: write me
+
+  return 0;
+}
+
+void printRecounts(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
+  //STEP 3: write me
+}
+
+void printLargestWin(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
+  //STEP 4: write me
+}

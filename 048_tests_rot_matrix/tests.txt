@@ -1,0 +1,34 @@
+a lot of args
+a input.txt
+cnaj
+ancn..
+c!ndlk
+&
+ 
+input.txt aaa
+ad da nip.txt
+input.txt
+input1.txt
+input2.txt
+input3.txt
+input4.txt
+input5.txt
+input6.txt
+input7.txt
+input8.txt
+input9.txt
+input10.txt
+input11.txt
+input12.txt
+input13.txt  
+input14.txt 
+input15.txt 
+input16.txt
+input17.txt
+notfound
+notfound.txt
+notxtbutexist
+f%%%.txt
+f%%%
+.txt
+

@@ -1,0 +1,80 @@
+#include <ctype.h>
+#include <grp.h>
+#include <pwd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <time.h>
+#include <unistd.h>
+//This function is for Step 4
+char * time2str(const time_t * when, long ns) {
+  char * ans = malloc(128 * sizeof(*ans));
+  char temp1[64];
+  char temp2[32];
+  const struct tm * t = localtime(when);
+  strftime(temp1, 512, "%Y-%m-%d %H:%M:%S", t);
+  strftime(temp2, 32, "%z", t);
+  snprintf(ans, 128, "%s.%09ld %s", temp1, ns, temp2);
+  return ans;
+}
+
+void printStat(const char * name,
+               size,
+               blocks,
+               io_block,
+               const char * fileType,
+               device,
+               inode,
+               links) {
+  printf("  File: ‘%s’\n", name);
+  printf("  Size: %-10lu\tBlocks: %-10lu IO Block: %-6lu %s\n",
+         size,
+         blocks,
+         io_block,
+         fileType);
+  printf("Device: %lxh/%lud\tInode: %-10lu  Links: %lu\n", device, inode, links);
+}
+
+const char * getFileType(const char * constant) {
+  const char * type = malloc(30 * sizeof(*type));
+  switch (constant & S_IFMT) {
+    case S_IFBLK:
+      type = "block special file";
+      break;
+    case S_IFCHR:
+      type = "character special file";
+      break;
+    case S_IFDIR:
+      type = "directory";
+      break;
+    case S_IFIFO:
+      type = "fifo";
+      break;
+    case S_IFLNK:
+      type = "symbolic link";
+      break;
+    case S_IFREG:
+      type = "regular file";
+      break;
+    case S_IFSOCK:
+      type = "socket";
+      break;
+  }
+}
+
+void getStat(char * name) {
+  lstat(name, buf);
+  const char * fileType = getFileType(constant);
+  printStat(name, size, blocks, io_block, fileType, device, inode, links);
+  free(fileType);
+}
+
+int main(int argc, char ** argv) {
+  if (argc != 2) {
+    fprintf(stderr, "Usage: mystat inputFileName\n");
+    return EXIT_FAILURE;
+  }
+  getStat(argv[1]);
+  return EXIT_SUCCESS;
+}

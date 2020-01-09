@@ -1,0 +1,67 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+
+class Expression {
+ public:
+  virtual std::string toString() const = 0;
+  virtual ~Expression(){};
+};
+
+class NumExpression : public Expression {
+  long num;
+
+ public:
+  NumExpression(long n) : num(n) {}
+  virtual std::string toString() const {
+    std::stringstream ss;
+    ss << num;
+    return ss.str();
+  }
+  virtual ~NumExpression() {}
+};
+
+class CalculateExpression : public Expression {
+  const char op;
+  Expression * l;
+  Expression * r;
+
+ public:
+  CalculateExpression(const char operation, Expression * lhs, Expression * rhs) :
+      op(operation),
+      l(lhs),
+      r(rhs) {}
+  virtual std::string toString() const {
+    std::stringstream ss;
+    ss << '(' << l->toString() << ' ' << op << ' ' << r->toString() << ')';
+    return ss.str();
+  }
+  virtual ~CalculateExpression() {
+    delete l;
+    delete r;
+  }
+};
+
+class PlusExpression : public CalculateExpression {
+ public:
+  PlusExpression(Expression * lhs, Expression * rhs) :
+      CalculateExpression('+', lhs, rhs) {}
+};
+
+class MinusExpression : public CalculateExpression {
+ public:
+  MinusExpression(Expression * lhs, Expression * rhs) :
+      CalculateExpression('-', lhs, rhs) {}
+};
+
+class TimeExpression : public CalculateExpression {
+ public:
+  TimeExpression(Expression * lhs, Expression * rhs) :
+      CalculateExpression('*', lhs, rhs) {}
+};
+
+class DivideExpression : public CalculateExpression {
+ public:
+  DivideExpression(Expression * lhs, Expression * rhs) :
+      CalculateExpression('/', lhs, rhs) {}
+};

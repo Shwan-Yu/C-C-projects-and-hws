@@ -1,0 +1,108 @@
+==116817== Memcheck, a memory error detector
+==116817== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==116817== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==116817== Command: ./test-lls
+==116817== Parent PID: 116816
+==116817== 
+==116817== Invalid read of size 4
+==116817==    at 0x109071: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Address 0x5b7dce0 is 0 bytes inside a block of size 24 free'd
+==116817==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x10A177: IntList::~IntList() (il9.cpp:140)
+==116817==    by 0x109025: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Block was alloc'd at
+==116817==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x109A2B: IntList::addFront(int const&) (il9.cpp:18)
+==116817==    by 0x108EC2: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817== 
+==116817== Invalid read of size 8
+==116817==    at 0x109D82: IntList::operator[](int) (il9.cpp:86)
+==116817==    by 0x1090A7: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Address 0x5b7dce8 is 8 bytes inside a block of size 24 free'd
+==116817==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x10A177: IntList::~IntList() (il9.cpp:140)
+==116817==    by 0x109025: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Block was alloc'd at
+==116817==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x109A2B: IntList::addFront(int const&) (il9.cpp:18)
+==116817==    by 0x108EC2: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817== 
+==116817== Invalid read of size 4
+==116817==    at 0x1090A8: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Address 0x5b7dc80 is 0 bytes inside a block of size 24 free'd
+==116817==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x10A177: IntList::~IntList() (il9.cpp:140)
+==116817==    by 0x109025: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Block was alloc'd at
+==116817==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x109A2B: IntList::addFront(int const&) (il9.cpp:18)
+==116817==    by 0x108E2D: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817== 
+==116817== Invalid read of size 8
+==116817==    at 0x1090D2: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Address 0x5b7dce8 is 8 bytes inside a block of size 24 free'd
+==116817==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x10A177: IntList::~IntList() (il9.cpp:140)
+==116817==    by 0x109025: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Block was alloc'd at
+==116817==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x109A2B: IntList::addFront(int const&) (il9.cpp:18)
+==116817==    by 0x108EC2: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817== 
+==116817== Invalid read of size 8
+==116817==    at 0x1090D6: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Address 0x5b7dc88 is 8 bytes inside a block of size 24 free'd
+==116817==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x10A177: IntList::~IntList() (il9.cpp:140)
+==116817==    by 0x109025: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Block was alloc'd at
+==116817==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x109A2B: IntList::addFront(int const&) (il9.cpp:18)
+==116817==    by 0x108E2D: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817== 
+==116817== Invalid read of size 8
+==116817==    at 0x109102: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Address 0x5b7dce8 is 8 bytes inside a block of size 24 free'd
+==116817==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x10A177: IntList::~IntList() (il9.cpp:140)
+==116817==    by 0x109025: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==  Block was alloc'd at
+==116817==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==116817==    by 0x109A2B: IntList::addFront(int const&) (il9.cpp:18)
+==116817==    by 0x108EC2: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817== 
+==116817== 
+==116817== Process terminating with default action of signal 6 (SIGABRT)
+==116817==    at 0x541BE97: raise (raise.c:51)
+==116817==    by 0x541D800: abort (abort.c:79)
+==116817==    by 0x540D399: __assert_fail_base (assert.c:92)
+==116817==    by 0x540D411: __assert_fail (assert.c:101)
+==116817==    by 0x10912D: testList() (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817==    by 0x109959: main (in /home/xy93/ece551/091_tests_lls/test-lls)
+==116817== 
+==116817== HEAP SUMMARY:
+==116817==     in use at exit: 0 bytes in 0 blocks
+==116817==   total heap usage: 5 allocs, 5 frees, 72,944 bytes allocated
+==116817== 
+==116817== All heap blocks were freed -- no leaks are possible
+==116817== 
+==116817== For counts of detected and suppressed errors, rerun with: -v
+==116817== ERROR SUMMARY: 6 errors from 6 contexts (suppressed: 0 from 0)
